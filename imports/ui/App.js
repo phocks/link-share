@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 import { withTracker } from "meteor/react-meteor-data";
 
 import { Tasks } from "../api/tasks.js";
@@ -49,6 +49,6 @@ class App extends Component {
 
 export default withTracker(() => {
   return {
-    tasks: Tasks.find({}).fetch()
+    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch()
   };
 })(App);
